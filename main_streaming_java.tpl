@@ -18,6 +18,13 @@
                         }
                 } else {
                     {{Name}}_cp = ep.getExchange(Exchanges.{{NAME}}).getCurrencyPairs();
+                    Iterator<CurrencyPair> pair = cp.iterator();
+                    while(pair.hasNext()){
+                        CurrencyPair p = pair.next();
+                        if(!{{Name}}_cp.contains(p)){
+                            pair.remove();
+                        }
+                    }
                 }
 
                 //Create a ticker from {{name}}
