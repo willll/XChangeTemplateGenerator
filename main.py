@@ -1,5 +1,6 @@
-import pystache
 import csv
+
+import pystache
 
 csv_columns = ['name', 'Streaming', 'Name', 'NAME']
 csv_file = "data.csv"
