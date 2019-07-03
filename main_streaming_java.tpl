@@ -3,17 +3,34 @@
 		 */
 		if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_enabled)))
 		{
-			ArrayList<CurrencyPair> {{Name}}_cp = ep.getExchange(Exchanges.{{NAME}}).getCurrencyPairs();
-			//Create a ticker from {{name}}
-			if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_ticker_enabled)))
+		    if (listCmd)
 			{
-				thds.addAll(ExchangesFactory.get{{Name}}Factory().create_ticker_feeders(ep, ctx, {{Name}}_cp));
-			}
-			// BUG : orderbook and tickers should be requested on the same thread or they are mutually exclusive
-			//Create a orderbook from {{name}}
-			if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_orderbook_enabled)))
-			{
-				thds.addAll(ExchangesFactory.get{{Name}}Factory().create_orderbook_feeders(ep, ctx, {{Name}}_cp));
+				displayCurrencyPairs(Exchanges.{{NAME}}, ep.getExchange(Exchanges.{{NAME}}).getCurrencyPairs());
+			} else {
+
+                ArrayList<CurrencyPair> {{Name}}_cp = cp;
+                String bscp = Config.getInstance().get(Constants.{{name}}_currency_pairs);
+                if(bscp != null)
+                {
+                        {{Name}}_cp = new ArrayList<>();
+                        for(String pair : bscp.split(",")){
+                            {{Name}}_cp.add(new CurrencyPair(pair));
+                        }
+                } else {
+                    {{Name}}_cp = ep.getExchange(Exchanges.{{NAME}}).getCurrencyPairs();
+                }
+
+                //Create a ticker from {{name}}
+                if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_ticker_enabled)))
+                {
+                    thds.addAll(ExchangesFactory.get{{Name}}Factory().create_ticker_feeders(ep, ctx, {{Name}}_cp));
+                }
+                // BUG : orderbook and tickers should be requested on the same thread or they are mutually exclusive
+                //Create a orderbook from {{name}}
+                if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_orderbook_enabled)))
+                {
+                    thds.addAll(ExchangesFactory.get{{Name}}Factory().create_orderbook_feeders(ep, ctx, {{Name}}_cp));
+                }
 			}
 		}
 

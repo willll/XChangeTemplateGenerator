@@ -7,7 +7,7 @@
 			{
 				displayCurrencyPairs(Exchanges.{{NAME}}, ep.getExchange(Exchanges.{{NAME}}).getCurrencyPairs());
 			} else {
-			    if (cp.
+
                 ArrayList<CurrencyPair> {{Name}}_cp = cp;
                 String bscp = Config.getInstance().get(Constants.{{name}}_currency_pairs);
                 if(bscp != null)
