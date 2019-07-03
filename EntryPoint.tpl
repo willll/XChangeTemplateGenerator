@@ -1,0 +1,1 @@
+private {{Name}} {{name}} = null;
