@@ -31,13 +31,13 @@
                 //Create a ticker from {{Name}}
                 if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_ticker_enabled)))
                 {
-                    thds.addAll(ExchangesFactory.get{{Name}}Factory().create_ticker_feeders(ep, ctx, {{Name}}_cp));
+                    thds.addAll(ExchangesFactory.get{{Name}}Factory().create_ticker_feeders(ep, ctx, cp));
                 }
 
                 //Create a orderbook from {{Name}}
                 if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_orderbook_enabled)))
                 {
-                    thds.addAll(ExchangesFactory.get{{Name}}Factory().create_orderbook_feeders(ep, ctx, {{Name}}_cp));
+                    thds.addAll(ExchangesFactory.get{{Name}}Factory().create_orderbook_feeders(ep, ctx, cp));
                 }
 			}
 		}
