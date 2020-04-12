@@ -7,38 +7,38 @@ csv_file = "data.csv"
 
 output_dir = "output/"
 
-factory_java_template = "factoryJava.tpl"
-factory_streaming_java_template = "factoryJavaStreaming.tpl"
+factory_java_template = "templates/factoryJava.tpl"
+factory_streaming_java_template = "templates/factoryJavaStreaming.tpl"
 
-pom_template_file = "pom.tpl"
+pom_template_file = "templates/pom.tpl"
 pom_file = "pom.xml"
 
-main_java_template_file = "main_java.tpl"
-main_streaming_java_template_file = "main_streaming_java.tpl"
+main_java_template_file = "templates/main_java.tpl"
+main_streaming_java_template_file = "templates/main_streaming_java.tpl"
 main_file = "main.java"
 
-ExchangesFactory_template_file = "Exchanges_factory_java.tpl"
+ExchangesFactory_template_file = "templates/Exchanges_factory_java.tpl"
 ExchangesFactory_file = "ExchangesFactory.java"
 
-Exchanges_java_template_file = "exchanges_java.tpl"
-Exchanges_streaming_java_template_file = "exchanges_streaming_java.tpl"
+Exchanges_java_template_file = "templates/exchanges_java.tpl"
+Exchanges_streaming_java_template_file = "templates/exchanges_streaming_java.tpl"
 
-constants_template_file = "constants.tpl"
-constants_streaming_template_file = "constants_streaming.tpl"
+constants_template_file = "templates/constants.tpl"
+constants_streaming_template_file = "templates/constants_streaming.tpl"
 constants_file = "Constants.java"
 
-properties_template_file = "properties.tpl"
+properties_template_file = "templates/properties.tpl"
 properties_file = "config.properties"
 
-entrypoint_template_file = "EntryPoint.tpl"
-entrypoint_enum_template_file = "EntryPoint_enum.tpl"
-entrypoint_switch_template_file = "EntryPoint_switch.tpl"
+entrypoint_template_file = "templates/EntryPoint.tpl"
+entrypoint_enum_template_file = "templates/EntryPoint_enum.tpl"
+entrypoint_switch_template_file = "templates/EntryPoint_switch.tpl"
 entrypoint_file = "EntryPoint.java"
 entrypoint_enum_file = "EntryPoint_enum.java"
 entrypoint_switch_file = "EntryPoint_switch.java"
 
-bus_definition_template_file = "bus_definition.tpl"
-bus_definition_file = "bus_definition.java"
+bus_definition_template_file = "templates/bus_definition.tpl"
+bus_definition_file = "((bus_definition.java"
 
 
 def feeder(arr):
