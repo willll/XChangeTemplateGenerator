@@ -1,4 +1,9 @@
 ###
+# General section
+###
+port=5563
+
+###
 # {{NAME}}
 ###
 {{name}}_enabled=true
