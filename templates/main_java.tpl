@@ -28,7 +28,7 @@
                     thds.addAll(ExchangesFactory.get{{Name}}Factory().create_ticker_feeders(ep, ctx, cp));
                 }
 
-                //Create a orderbook from {{Name}}
+                //Create an orderbook from {{Name}}
                 if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_orderbook_enabled))) {
                     thds.addAll(ExchangesFactory.get{{Name}}Factory().create_orderbook_feeders(ep, ctx, cp));
                 }

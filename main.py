@@ -2,7 +2,7 @@ import csv
 
 import pystache
 
-csv_columns = ['name', 'Streaming', 'Name', 'NAME']
+csv_columns = ['name', 'Streaming', 'Name', 'NAME', 'enable', 'ticker', 'orderbook', 'refresh_rate']
 csv_file = "data.csv"
 
 output_dir = "output/"
@@ -161,13 +161,31 @@ def recorder(arr):
     bus_definition_output.close()
 
 
+'''
+source : https://stackoverflow.com/questions/14158868/python-skip-comment-lines-marked-with-in-csv-dictreader
+'''
+
+
+def decomment(csvfile):
+    for row in csvfile:
+        raw = row.split('#')[0].strip()
+        if raw: yield row
+
+
+'''
+MAIN
+'''
+
+
 def main():
     arr = []
     with open(csv_file, mode='r') as infile:
-        reader = csv.reader(infile, delimiter=';')
+        reader = csv.reader(decomment(infile), delimiter=';')
         for rows in reader:
             mydict = {csv_columns[0]: rows[0], csv_columns[1]: rows[1],
-                      csv_columns[2]: rows[0].capitalize(), csv_columns[3]: rows[0].upper()}
+                      csv_columns[2]: rows[0].capitalize(), csv_columns[3]: rows[0].upper(),
+                      csv_columns[4]: rows[2], csv_columns[5]: rows[3], csv_columns[6]: rows[4],
+                      csv_columns[7]: rows[5]}
             arr.append(mydict)
     feeder(arr)
 

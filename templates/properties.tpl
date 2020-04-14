@@ -1,13 +1,9 @@
-###
-# General section
-###
-port=5563
 
 ###
 # {{NAME}}
 ###
-{{name}}_enabled=true
-{{name}}_ticker_enabled=true
-{{name}}_orderbook_enabled=false
-{{name}}_refresh_rate=600
+{{name}}_enabled={{enable}}
+{{name}}_ticker_enabled={{ticker}}
+{{name}}_orderbook_enabled={{orderbook}}
+{{name}}_refresh_rate={{refresh_rate}}
 {{name}}_currency_pairs=
