@@ -5,10 +5,10 @@
 		    if (listCmd) {
 				displayCurrencyPairs(Exchanges.{{NAME}}, ep.getExchange(Exchanges.{{NAME}}).getCurrencyPairs());
 			} else {
-                ArrayList<CurrencyPair> {{Name}}_cp = cp;
+                Set<CurrencyPair> {{Name}}_cp = cp;
                 String bscp = Config.getInstance().get(Constants.{{name}}_currency_pairs);
                 if(bscp != null) {
-                        {{Name}}_cp = new ArrayList<>();
+                        {{Name}}_cp = new HashSet<>();
                         for(String pair : bscp.split(",")) {
                             {{Name}}_cp.add(new CurrencyPair(pair));
                         }
