@@ -49,17 +49,17 @@ public class {{Name}}Factory extends GenericFactory {
 				// Set refresh time
 				String refresh_timer = Config.getInstance().get(Constants.{{name}}_refresh_rate);
                 if (refresh_timer != null) {
-					ExchangesFactory.getAcxFactory().setRefreshRate(Long.parseLong(refresh_timer) * 1000);
+					ExchangesFactory.get{{Name}}Factory().setRefreshRate(Long.parseLong(refresh_timer) * 1000);
 				}
 
 				// Create a ticker from {{Name}}
 				if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_ticker_enabled))) {
-					_thds.addAll(ExchangesFactory.getAcxFactory().create_ticker_feeders(_ep, _ctx, _cp));
+					_thds.addAll(ExchangesFactory.get{{Name}}Factory().create_ticker_feeders(_ep, _ctx, _cp));
 				}
 
 				// Create an orderbook from {{Name}}
 				if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_orderbook_enabled))) {
-					_thds.addAll(ExchangesFactory.getAcxFactory().create_orderbook_feeders(_ep, _ctx, _cp));
+					_thds.addAll(ExchangesFactory.get{{Name}}Factory().create_orderbook_feeders(_ep, _ctx, _cp));
 				}
 			}
 		}
