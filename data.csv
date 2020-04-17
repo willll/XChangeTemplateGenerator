@@ -44,7 +44,7 @@ CoinEgg;n;false;false;false;600;
 coinex;n;false;false;false;600;
 coinfloor;n;false;false;false;600;
 coingi;n;false;false;false;600;
-Cmc;n;false;false;false;600;            # CoinMarketCap
+coinmarketcap;n;false;false;false;600;            # CoinMarketCap
 coinmate;y;false;false;false;600;
 coinone;n;false;false;false;600;
 coinsuper;n;false;false;false;600;

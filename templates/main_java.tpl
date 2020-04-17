@@ -1,37 +1,3 @@
-		/*
-		 * {{NAME}}
-		 */
-		if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_enabled))) {
-		    if (listCmd) {
-				displayCurrencyPairs(Exchanges.{{NAME}}, ep.getExchange(Exchanges.{{NAME}}).getCurrencyPairs());
-			} else {
-                Set<CurrencyPair> {{Name}}_cp = cp;
-                String bscp = Config.getInstance().get(Constants.{{name}}_currency_pairs);
-                if(bscp != null) {
-                        {{Name}}_cp = new HashSet<>();
-                        for(String pair : bscp.split(",")) {
-                            {{Name}}_cp.add(new CurrencyPair(pair));
-                        }
-                } else {
-                    {{Name}}_cp = ep.getExchange(Exchanges.{{NAME}}).getCurrencyPairs();
-                    Iterator<CurrencyPair> pair = cp.iterator();
-                    while(pair.hasNext()){
-                        CurrencyPair p = pair.next();
-                        if(!{{Name}}_cp.contains(p)) {
-                            pair.remove();
-                        }
-                    }
-                }
-
-                //Create a ticker from {{Name}}
-                if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_ticker_enabled))) {
-                    thds.addAll(ExchangesFactory.get{{Name}}Factory().create_ticker_feeders(ep, ctx, cp));
-                }
-
-                //Create an orderbook from {{Name}}
-                if (Boolean.parseBoolean(Config.getInstance().get(Constants.{{name}}_orderbook_enabled))) {
-                    thds.addAll(ExchangesFactory.get{{Name}}Factory().create_orderbook_feeders(ep, ctx, cp));
-                }
-			}
-		}
+		// {{NAME}}
+		{{Name}}Factory.{{name}}(listCmd, ep, cp, thds, ctx);
 
