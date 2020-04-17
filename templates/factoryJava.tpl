@@ -30,7 +30,7 @@ public class {{Name}}Factory extends GenericFactory {
 			} else {
 				Set<CurrencyPair> {{Name}}_cp = _cp;
 				String bscp = Config.getInstance().get(Constants.{{name}}_currency_pairs);
-				if (bscp != null) {
+				if (bscp != null && !bscp.isEmpty()) {
 					{{Name}}_cp = new HashSet<>();
 					for (String pair : bscp.split(",")) {
 						{{Name}}_cp.add(new CurrencyPair(pair));
