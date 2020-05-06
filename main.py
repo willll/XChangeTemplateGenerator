@@ -38,7 +38,11 @@ entrypoint_enum_file = "EntryPoint_enum.java"
 entrypoint_switch_file = "EntryPoint_switch.java"
 
 bus_definition_template_file = "templates/bus_definition.tpl"
-bus_definition_file = "((bus_definition.java"
+bus_definition_template_file2 = "templates/bus_definition2.tpl"
+bus_definition_template_file3 = "templates/bus_definition3.tpl"
+bus_definition_file = "bus_definition.java"
+bus_definition_file2 = "bus_definition2.java"
+bus_definition_file3 = "bus_definition3.java"
 
 
 def feeder(arr):
@@ -153,12 +157,30 @@ def recorder(arr):
     if f.mode == 'r':
         bus_definition_template = f.read()
 
+    bus_definition_template2 = ''
+    f = open(bus_definition_template_file2, mode='r')
+    if f.mode == 'r':
+        bus_definition_template2 = f.read()
+
+    bus_definition_template3 = ''
+    f = open(bus_definition_template_file3, mode='r')
+    if f.mode == 'r':
+        bus_definition_template3 = f.read()
+
     bus_definition_output = open(output_dir + bus_definition_file, "w+")
+
+    bus_definition_output2 = open(output_dir + bus_definition_file2, "w+")
+
+    bus_definition_output3 = open(output_dir + bus_definition_file3, "w+")
 
     for rows in arr:
         bus_definition_output.write(pystache.render(bus_definition_template, rows))
+        bus_definition_output2.write(pystache.render(bus_definition_template2, rows))
+        bus_definition_output3.write(pystache.render(bus_definition_template3, rows))
 
     bus_definition_output.close()
+    bus_definition_output2.close()
+    bus_definition_output3.close()
 
 
 '''
@@ -187,7 +209,8 @@ def main():
                       csv_columns[4]: rows[2], csv_columns[5]: rows[3], csv_columns[6]: rows[4],
                       csv_columns[7]: rows[5]}
             arr.append(mydict)
-    feeder(arr)
+    #feeder(arr)
+    recorder(arr)
 
 
 if __name__ == '__main__':
